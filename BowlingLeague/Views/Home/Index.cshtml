@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IndexViewModel
+
+<div class="text-center m-1">
+    <div class="m-4">
+        <h2>@Model.TeamName</h2>
+    </div>
+    @foreach (var x in Model.Bowlers)
+    {
+        <div class="card text-center m-1">
+            <div class="card-body">
+                <h5 class="card-title">@x.BowlerFirstName @x.BowlerLastName</h5>
+                <p class="card-text">
+                    @x.BowlerAddress<br />
+                    @x.BowlerCity, @x.BowlerState @x.BowlerZip
+                </p>
+                <p>@x.BowlerPhoneNumber</p>
+            </div>
+        </div>
+    }
+</div>
+
+<div page-info="@Model.PageNumbering"
+     page-url-teamName="@Model.TeamName"
+     page-classes-enabled="true"
+     page-class="btn"
+     page-class-normal="btn-primary"
+     page-class-selected="btn-warning"
+     class="btn-group pull-right m-1">
+
+</div>
